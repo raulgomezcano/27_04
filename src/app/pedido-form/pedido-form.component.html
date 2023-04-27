@@ -1,0 +1,36 @@
+<h1>Nuevo Pedido</h1>
+<form #nombre="ngForm" [formGroup]="formulario" (ngSubmit)="aceptarFormulario()">
+    ID de pedido: <input type="number" formControlName="pedidoID"><br>
+    ID de cliente: <input type="number" formControlName="clienteID"><br>
+    Forma de pago: <input type="text" formControlName="forma_pago"><br>
+    Direccion: <input type="text" formControlName="direccion"><br><br>
+    <button type="button" (click)="mostrarFormPedidos()">Agregar producto</button><br><br>
+    <router-outlet></router-outlet><hr>
+    <button type="submit">Mostrar pedido</button>
+</form>
+<table>
+    <thead>
+        <tr>
+            <th>ID de pedido</th>
+            <th>ID de cliente</th>
+            <th>Forma de pago</th>
+            <th>Direccion</th>
+            <th>ID de producto</th>
+            <th>Cantidad</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of arrayPedidos">
+            <td>{{item.pedidoID}}</td>
+            <td>{{item.clienteID}}</td>
+            <td>{{item.forma_pago}}</td>
+            <td>{{item.direccion}}</td>
+            <td>
+                <tr *ngFor="let producto of arrayProductos">
+                    <td>{{producto.productoID}}</td>
+                    <td>{{producto.cantidad}}</td>
+                </tr>
+            </td>
+        </tr>
+    </tbody>
+</table>

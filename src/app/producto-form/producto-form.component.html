@@ -1,0 +1,7 @@
+<hr><h3>Nuevo Producto</h3>
+<form #nombre="ngForm" [formGroup]="formulario" (ngSubmit)="agregarProducto()">
+    ID de pedido: <input type="number" formControlName="pedidoID" [attr.disabled]="true"><br>
+    ID de producto: <input type="number" formControlName="productoID"><br>
+    Cantidad: <input type="number" formControlName="cantidad"><br><br>
+    <button type="submit">Agregar</button>
+</form>
